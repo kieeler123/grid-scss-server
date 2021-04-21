@@ -1,0 +1,14 @@
+main{
+    section{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:nth-of-type(odd){
+            background-color: lightblue;
+        }
+        &:nth-of-type(even){
+            background-color: lightcyan;
+        }
+    }
+}

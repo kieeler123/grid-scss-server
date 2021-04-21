@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,KADC,CACD,UAAU,AAAA,CACN,OAAO,CAAE,IAAI,CACb,qBAAqB,CAAE,cAAa,CACvC",
+    "sources": [
+        "../scss/layout.scss"
+    ],
+    "names": [],
+    "file": "layout.css"
+}

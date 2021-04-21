@@ -1,0 +1,27 @@
+{% set title = "table page" %}
+{% extends "layout/base.html" %}
+
+{% block content %}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>제목</th>
+        <th>작성일</th>
+        <th>삭제</th>
+    </tr>
+    {% for product in table %}
+    <tr>
+        <td>
+            <a href="/admin/table/detail/{{  product.id }}">{{ product.name }}</a>
+        </td>
+        <td>
+            {{ product.dateFormat( product.createdAt ) }}
+        </td>
+        <td>
+            <a href="/admin/table/delete/{{ product.id }}" class="btn btn-danger" onclick="return confirm('삭제하시겠습니까?')">삭제</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/admin/table/write" class="btn btn-default">작성하기</a>
+{% endblock %}
