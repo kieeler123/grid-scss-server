@@ -5,6 +5,8 @@ const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
 
+const db = require('./models');
+
 const app = express();
 const port = 3000;
 
@@ -30,6 +32,20 @@ app.get('/',(req,res)=>{
     {title : "grid-scss-server"}
     );
 });
+
+app.use(require('./controllers'));
+
+db.sequelize.authenticate()
+        .then(() => {
+            console.log('Connection has been established successfully.');
+            return db.sequelize.sync();
+        })
+        .then(() => {
+            console.log('DB Sync complete.');
+        })
+        .catch(err => {
+            console.error('Unable to connect to the database:', err);
+        });
 
 app.listen(port,()=>{
     console.log('this port numper is : ',port);

@@ -17,8 +17,16 @@ router.get('/',fmid,smid,(req,res)=>{
     );
 });
 
-router.get('/table',(req,res)=>{
+router.get('/admin/table',(req,res)=>{
     res.render('admin/table.html');
-})
+});
+
+router.get('/admin/table/write', ( _ , res) => {
+    res.render( 'admin/write.html');
+});
+
+router.post('/admin/table/write', ( req , res ) => {
+    res.send(req.body);
+});
 
 module.exports = router;
